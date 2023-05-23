@@ -1,0 +1,51 @@
+.sub-card {
+    border-radius: 16px;
+    background-color: var(--color-bg-quaternary);
+    min-height: 270px;
+    padding: 54px 30px;
+    margin-top: 54px;
+    margin-left: 90px;
+}
+
+.sub-container {
+    border-radius: 6px;
+    background-color: var(--color-bg-primary);
+    min-height: 247px;
+    border: 1px solid var(--color-font-quaternary);
+}
+
+.title-info {
+    font-size: 20px;
+    color:var(--color-bg-secondary);
+    margin-left: 14px;
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+.sub-container img {
+    width: 247px;
+    height: 247px;
+    margin-right: 29px;
+}
+
+.title-output {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--color-font-fifth);
+}
+
+.output {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--color-font-fifth);
+}
+
+.mini-card {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-font-quaternary);
+    box-sizing: border-box;
+    margin: 14px;
+    padding: 10px 8px;
+}
