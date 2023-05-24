@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-import Button from "../Button";
-import "./style.css";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { ProfileDTO } from "../../models/profile";
-import ResponseCard from "../ResponseCard";
 import { BASE_URL } from "../../utils/system";
-import axios from "axios";
+import Button from "../Button";
+import ResponseCard from "../ResponseCard";
+import "./style.css";
 
 type FormData = {
   username: string;
