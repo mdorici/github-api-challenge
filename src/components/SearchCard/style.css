@@ -23,3 +23,13 @@ input {
     border-color: var(--color-font-quaternary);
     border-width: 1px;
 }
+
+.card-error {
+    margin-left: 90px;
+    margin-top: 64px;
+}
+
+.card-error h2 {
+    font-size: 38px;
+    color: var(--color-font-sixth);
+}

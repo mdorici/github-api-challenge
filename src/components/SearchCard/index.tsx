@@ -12,6 +12,7 @@ type FormData = {
 };
 
 export default function SearchCard() {
+  
   const [profile, setProfile] = useState<ProfileDTO>({
     avatar: "",
     followers: 0,
@@ -23,20 +24,44 @@ export default function SearchCard() {
   const [formData, setFormData] = useState<FormData>({
     username: "",
   });
-  
 
-  function handleInputChange(event: any) {
-    const value = event.target.value;
-    const name = event.target.name;
-    setFormData({ ...formData, [name]: value });
+  const [conditions, setConditions] = useState({
+    showResponse: false,
+    noContent: false,
+  });
+
+  const [click, setClick] = useState(0);
+
+  function handleUsernameChange(event: any) {
+    setFormData({ ...formData, username: event.target.value });
   }
 
   function handleFormSubmit(event: any) {
     event.preventDefault();
-    
+    setClick(click + 1);
+    formData.username === ""
+      ? setConditions({ ...conditions, showResponse: false })
+      : setConditions({ ...conditions, showResponse: true });
   }
 
-  
+  useEffect(() => {
+    if (formData.username != "")
+      axios
+        .get(BASE_URL + formData.username)
+        .then((response) => {
+          console.log(response.data);
+          setConditions({ ...conditions, noContent: false });
+          setProfile({
+            avatar: response.data.avatar_url,
+            followers: Number(response.data.followers),
+            locality: response.data.locality,
+            name: response.data.name,
+            url: response.data.url,
+          });
+        })
+        .catch(() => setConditions({ ...conditions, noContent: true }));
+  }, [click]);
+
 
   return (
     <>
@@ -51,7 +76,7 @@ export default function SearchCard() {
               value={formData.username}
               type="text"
               placeholder="Usuário Github"
-              onChange={handleInputChange}
+              onChange={handleUsernameChange}
             />
           </div>
           <div className="dflex">
@@ -59,8 +84,14 @@ export default function SearchCard() {
           </div>
         </form>
       </section>
-      <section>
-      
+      <section className="card-error">
+      {
+        !conditions.showResponse
+        ? (<></>)
+        : conditions.noContent
+        ? (<h2>Erro ao buscar usuário</h2>)
+        : (<ResponseCard profile={profile} />)
+      }
       </section>
     </>
   );

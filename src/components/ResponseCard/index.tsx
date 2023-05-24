@@ -8,7 +8,7 @@ type Props = {
 export default function ResponseCard({ profile }: Props) {
   return (
     <section className="sub-card">
-      <div sub-container>
+      <div>
         <img src={profile.avatar} />
       </div>
       <div className="sub-container">

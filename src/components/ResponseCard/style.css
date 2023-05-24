@@ -1,4 +1,5 @@
 .sub-card {
+    display: flex;
     border-radius: 16px;
     background-color: var(--color-bg-quaternary);
     min-height: 270px;
@@ -11,6 +12,7 @@
     border-radius: 6px;
     background-color: var(--color-bg-primary);
     min-height: 247px;
+    width: 100%;
     border: 1px solid var(--color-font-quaternary);
 }
 
@@ -22,7 +24,7 @@
     margin-top: 8px;
 }
 
-.sub-container img {
+img {
     width: 247px;
     height: 247px;
     margin-right: 29px;
